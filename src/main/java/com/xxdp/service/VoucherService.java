@@ -1,5 +1,6 @@
 package com.xxdp.service;
 
+import com.xxdp.dto.Result;
 import com.xxdp.entity.Voucher;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,4 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface VoucherService extends IService<Voucher> {
 
+    void addSeckillVoucher(Voucher voucher);
+
+    Result queryVoucherOfShop(Long shopId);
 }

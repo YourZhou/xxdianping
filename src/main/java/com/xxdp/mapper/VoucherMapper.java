@@ -2,6 +2,9 @@ package com.xxdp.mapper;
 
 import com.xxdp.entity.Voucher;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author YourZhou
@@ -11,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface VoucherMapper extends BaseMapper<Voucher> {
 
+    List<Voucher> queryVoucherOfShop(@Param("shopId") Long shopId);
 }
 
 

@@ -1,6 +1,7 @@
 package com.xxdp.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xxdp.dto.Result;
 import com.xxdp.entity.VoucherOrder;
 import com.xxdp.service.VoucherOrderService;
 import com.xxdp.mapper.VoucherOrderMapper;
@@ -15,6 +16,10 @@ import org.springframework.stereotype.Service;
 public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, VoucherOrder>
     implements VoucherOrderService{
 
+    @Override
+    public Result seckillVoucher(Long voucherId) {
+        return null;
+    }
 }
 
 

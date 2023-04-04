@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.Data;
 
@@ -70,6 +71,24 @@ public class Voucher implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+
+    /**
+     * 库存
+     */
+    @TableField(exist = false)
+    private Integer stock;
+
+    /**
+     * 生效时间
+     */
+    @TableField(exist = false)
+    private Date beginTime;
+
+    /**
+     * 失效时间
+     */
+    @TableField(exist = false)
+    private Date endTime;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
