@@ -65,12 +65,12 @@ public class Voucher implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
     /**
      * 库存
@@ -82,13 +82,13 @@ public class Voucher implements Serializable {
      * 生效时间
      */
     @TableField(exist = false)
-    private Date beginTime;
+    private LocalDateTime beginTime;
 
     /**
      * 失效时间
      */
     @TableField(exist = false)
-    private Date endTime;
+    private LocalDateTime endTime;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
