@@ -23,6 +23,22 @@ public class Blog implements Serializable {
     private Long id;
 
     /**
+     * 用户图标
+     */
+    @TableField(exist = false)
+    private String icon;
+    /**
+     * 用户姓名
+     */
+    @TableField(exist = false)
+    private String name;
+    /**
+     * 是否点赞过了
+     */
+    @TableField(exist = false)
+    private Boolean isLike;
+
+    /**
      * 商户id
      */
     private Long shopId;

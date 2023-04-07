@@ -7,10 +7,7 @@ import com.xxdp.entity.Blog;
 import com.xxdp.service.BlogService;
 import com.xxdp.utils.SystemConstants;
 import com.xxdp.utils.UserHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,6 +17,16 @@ import java.util.List;
 public class BlogController {
     @Resource
     private BlogService blogService;
+
+    @PostMapping
+    public Result saveBlog(@RequestBody Blog blog){
+        return blogService.saveBlog(blog);
+    }
+
+    @PutMapping("/like/{id}")
+    public Result likeBlog(@PathVariable("id") Long id){
+        return blogService.likeBlog(id);
+    }
 
     @GetMapping("/of/me")
     public Result queryMyBlog(@RequestParam(value = "current", defaultValue = "1") Integer current) {
@@ -31,5 +38,26 @@ public class BlogController {
         // 获取当前页数据
         List<Blog> records = page.getRecords();
         return Result.ok(records);
+    }
+
+    @GetMapping("/hot")
+    public Result queryHotBlog(@RequestParam(value = "current", defaultValue = "1") Integer current) {
+        return blogService.queryHotBlog(current);
+    }
+
+    @GetMapping("/{id}")
+    public Result queryBlogById(@PathVariable("id") Long id) {
+        return blogService.queryBlogById(id);
+    }
+
+    @GetMapping("/likes/{id}")
+    public Result queryBlogLikes(@PathVariable("id") Long id) {
+        return blogService.queryBlogLikes(id);
+    }
+
+    @GetMapping("/of/follow")
+    public Result queryBlogOfFollow(
+            @RequestParam("lastId") Long max, @RequestParam(value = "offset", defaultValue = "0") Integer offset){
+        return blogService.queryBlogOfFollow(max, offset);
     }
 }
